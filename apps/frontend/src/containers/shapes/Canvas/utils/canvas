@@ -1,0 +1,73 @@
+// import { CANVAS_DEFINITIONS, CanvasDefinition } from './../CanvasShape'
+
+// /** @public */
+// export function matchEmbedUrl() {
+// 	for (const localEmbedDef of CANVAS_DEFINITIONS) {
+// 		if (localEmbedDef) {
+// 			return localEmbedDef
+// 		}
+// 	}
+// }
+
+// const globlikeRegExp = (input: string) => {
+// 	return input
+// 		.split('*')
+// 		.map((str) => escapeStringRegexp(str))
+// 		.join('.+')
+// }
+
+// /** @public */
+// export function matchUrl(url: string) {
+// 	const host = new URL(url).host.replace('www.', '')
+// 	for (const localEmbedDef of CANVAS_DEFINITIONS) {
+// 		if (checkHostnames(localEmbedDef.hostnames, host)) {
+// 			const embedUrl = localEmbedDef.toEmbedUrl(url)
+
+// 			if (embedUrl) {
+// 				return {
+// 					definition: localEmbedDef,
+// 					embedUrl,
+// 					url,
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// /** @public */
+// export type TLEmbedResult =
+// 	| {
+// 			definition: EmbedDefinition
+// 			url: string
+// 			embedUrl: string
+// 	  }
+// 	| undefined
+
+// /**
+//  * Tests whether an URL supports embedding and returns the result.
+//  *
+//  * @param inputUrl - The URL to match
+//  * @public
+//  */
+// export function getEmbedInfoUnsafely(inputUrl: string): TLEmbedResult {
+// 	const result = matchUrl(inputUrl) ?? matchEmbedUrl(inputUrl)
+// 	return result
+// }
+
+// /**
+//  * Tests whether an URL supports embedding and returns the result. If we encounter an error, we
+//  * return undefined.
+//  *
+//  * @param inputUrl - The URL to match
+//  * @public
+//  */
+// export function getEmbedInfo(inputUrl: string): TLEmbedResult {
+// 	try {
+// 		return getEmbedInfoUnsafely(inputUrl)
+// 	} catch (e) {
+// 		// Don't throw here! We'll throw it from the embed shape's shape util
+// 		console.error(e)
+// 	}
+
+// 	return undefined
+// }
